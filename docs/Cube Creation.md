@@ -22,6 +22,8 @@
     * (z == 2): It will have a front face
 * After determining the face, add sticker(plane with size smaller than cubelet) and border(plane with size bigger than cubelet)
 
+---
+
 ## Adding Stickers and Border
 
 * Create Sticker and Border of appropriate size and make sure they are double planed(usually they are created with front plane only but we need both planes for some faces like "Right")

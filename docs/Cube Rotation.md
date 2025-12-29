@@ -21,6 +21,8 @@
     * F: z == 2
     * B: z == 0
 
+---
+
 ## Determining HOW to move
 
 * After determining the cubelets to move, add them to the temporary group and create a layer
@@ -33,6 +35,7 @@
     * `speed`: The number by which to increment/decrement rotation value
     * `rotationSign`: Further explained in rotation Math section
 
+---
 
 ## Rotation Math
 
@@ -48,6 +51,8 @@ Since we do not change our normal axis in calculations as compared to Rubik's cu
 * We decrement the value of remaining degrees of rotation by step
 * If the remaining value reaches 0, we have completed our rotation animation and we can stop
 * **This is just for animation, the function `finalizeMove()` just animates, we still need to update actual indexes of cube logically**
+
+---
 
 ## Logical Move Math
 
@@ -97,6 +102,8 @@ Thus we update the cubeMatrix after each move
     * We clear the cubes that were in the position of affected/moved cubes and then add new cubes based on new calculated index there
         * P.S: Do not read and delete/update at the same time, worst mistake ever
     * `syncPositionsFromLogic` just fixes the random small pointing errors that can cascade in multiple moves
+
+---
 
 ## Update Sticker's face
 
