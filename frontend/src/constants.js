@@ -1,5 +1,8 @@
-export const WIDTH = window.innerWidth
-export const HEIGHT = window.innerHeight
+export const CUBE_CONTAINER = document.querySelector('#cubeCanvas')
+export const WIDTH = CUBE_CONTAINER.clientWidth
+export const HEIGHT = CUBE_CONTAINER.clientHeight
+export const BACKGROUND_COLOR = 0x000000
+export const BACKGROUND_ALPHA = 0
 
 export const boxHeight = 1
 export const boxWidth = 1

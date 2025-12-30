@@ -2,13 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My first three.js app</title>
-    <style>
-      body { margin: 0; }
-    </style>
+    <title>Rubik's Cube Solver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <script type="module" src="main.js"></script>
+    <section class="landing">
+      <h1>Rubik's Cube Solver</h1>
+    </section>
+    
+    <section class="cube-canvas" id="cubeCanvas">
+      <div class="cube-colors">
+
+      </div>
+  
+      <div class="functional-buttons">
+        <div class="buttons-container left-container"></div>
+        <div class="buttons-container center-container">
+          <button id="cameraLeft">Left</button>
+          <button id="cameraUp">Up</button>
+          <button id="cameraRight">Right</button>
+        </div>
+        <div class="buttons-container right-container"></div>
+      </div>
+    </section>
+
+    <script type="module" src="src/constants.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
     

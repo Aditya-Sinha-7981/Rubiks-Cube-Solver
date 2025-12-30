@@ -88,7 +88,7 @@ export function syncPositionsFromLogic() {
             for (let z = 0; z <= 2; z++) {
                 const cube = cubeCreation.cubeMatrix[x][y][z]
                 if (!cube) continue
-                cube.position.set(x - 1, y - 1, z - 1)
+                cube.position.set((x - 1) * Constants.spacing, (y - 1) * Constants.spacing, (z - 1) * Constants.spacing)
             }
         }
     }
