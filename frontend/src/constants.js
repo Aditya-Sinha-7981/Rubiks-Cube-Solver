@@ -4,6 +4,14 @@ export const HEIGHT = CUBE_CONTAINER.clientHeight
 export const BACKGROUND_COLOR = 0x000000
 export const BACKGROUND_ALPHA = 0
 
+// Camera Constants
+export const ROTATE_LEFT = document.querySelector('#rotateLeft')
+export const ROTATE_UP = document.querySelector('#rotateUp')
+export const ROTATE_RIGHT = document.querySelector('#rotateRight')
+export const ROTATION_RESET = document.querySelector('#rotationReset')
+export const CAMERA_RADIUS = 8
+export const CAMERA_ANIMATION_SPEED = 0.05
+
 export const boxHeight = 1
 export const boxWidth = 1
 export const boxDepth = 1

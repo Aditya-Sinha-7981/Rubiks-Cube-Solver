@@ -1,7 +1,9 @@
-import { renderer, scene, camera, controls } from './scene.js'
+import * as THREE from 'three'
+import * as constants from './constants.js'
+import { renderer, scene, camera, controls, cubeViewGroup } from './scene.js'
 import * as cubeCreation from './cubeCreation.js'
 import * as cubeMovement from './cubeMovement.js'
-import { debugTrackedCubelet, setTrackedCubelet, colorFrontSticker  } from './debug.js'
+import { debugTrackedCubelet, setTrackedCubelet, colorFrontSticker, debugCubeGroup  } from './debug.js'
 
 cubeCreation.createCubeMatrix(3, 3, 3)
 
@@ -10,6 +12,7 @@ setTrackedCubelet(0, 2, 2)
 const testCubelet = cubeCreation.cubeMatrix[0][2][2]
 colorFrontSticker(testCubelet, 0xff0000)
 
+// Layer rotation functions
 window.addEventListener('keydown', (event) => {
     if (!cubeMovement.currentMove){
         if (event.key.toLowerCase() === 'u'){
@@ -29,9 +32,23 @@ window.addEventListener('keydown', (event) => {
     debugTrackedCubelet("BEFORE MOVE");
 })
 
-function animate() {
-    controls.update()
+// Cube Rotation functions 
+constants.ROTATE_LEFT.onclick = () => {
+    cubeMovement.rotateCube('y', -1)
+}
+constants.ROTATE_RIGHT.onclick = () => {
+    cubeMovement.rotateCube('y', 1)
+}
+constants.ROTATE_UP.onclick = () => {
+    cubeMovement.rotateCube('x', -1)
+}
+constants.ROTATION_RESET.onclick = () => {
+    cubeMovement.cubeRotationReset()
+}
+  
 
+function animate() {
+    //Layer movement animation
     if (cubeMovement.currentMove) {
         const step = Math.min(cubeMovement.currentMove.remaining, cubeMovement.currentMove.speed)
         cubeMovement.currentMove.group.rotation[cubeMovement.currentMove.axis] += step * cubeMovement.currentMove.rotationSign
@@ -43,6 +60,19 @@ function animate() {
             cubeMovement.syncPositionsFromLogic()
             debugTrackedCubelet("AFTER MOVE")
             cubeMovement.clearCurrentMove()
+        }
+    }
+
+    //Cube rotation animation
+    if(cubeMovement.cubeRotation) {
+        const step = Math.min(cubeMovement.cubeRotation.remaining, cubeMovement.cubeRotation.speed)
+        cubeViewGroup.rotation[cubeMovement.cubeRotation.axis] += step * cubeMovement.cubeRotation.sign 
+        cubeMovement.cubeRotation.remaining -= step
+
+        if (cubeMovement.cubeRotation.remaining <= 0) {
+            cubeMovement.snapCubeViewRotation()
+            cubeMovement.clearCubeRotation()
+            debugCubeGroup()
         }
     }
 

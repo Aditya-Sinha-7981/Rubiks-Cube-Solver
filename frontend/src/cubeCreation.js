@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import * as Constants from './constants.js'
-import { scene } from './scene.js'
+import { scene, cubeViewGroup  } from './scene.js'
 
 export const cubeMatrix = []
 export const cubelets = []
@@ -73,7 +73,7 @@ function createCube(geometry, cubeColor, cubeCoordinates, arrayCoordinates) {
     const material = new THREE.MeshBasicMaterial({ color: cubeColor })
     const cube = new THREE.Mesh(geometry, material)
 
-    scene.add(cube)
+    cubeViewGroup.add(cube)
     cube.position.set(...cubeCoordinates)
 
     addStickersPerFace(cube, arrayCoordinates)

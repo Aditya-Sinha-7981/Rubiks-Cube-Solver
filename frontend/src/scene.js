@@ -22,23 +22,8 @@ camera.lookAt(0, 0, 0)
 
 export const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableZoom = false
-controls.enableRotate = true
+controls.enableRotate = false
 controls.enablePan = false
 
-const radius = 6;
-
-function updateCamera() {
-  const yawRad = THREE.MathUtils.degToRad(cameraState.yaw)
-  const pitchRad = THREE.MathUtils.degToRad(cameraState.pitch)
-
-  camera.position.x = radius * Math.cos(pitchRad) * Math.sin(yawRad)
-  camera.position.y = radius * Math.sin(pitchRad)
-  camera.position.z = radius * Math.cos(pitchRad) * Math.cos(yawRad)
-
-  camera.lookAt(0, 0, 0)
-}
-
-
-
-
-controls.update()
+export const cubeViewGroup = new THREE.Group()
+scene.add(cubeViewGroup)

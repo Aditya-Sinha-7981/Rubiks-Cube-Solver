@@ -111,3 +111,16 @@ After a move, say F, a sticker that was initially facing Up is now facing Right,
 
 * Create an object based on values(just calculate them with a physical cube)
 * After animation is finished, based on fixed axis and rotation sign, change the values or sticker's face 
+
+---
+
+## Entire Cube Rotation
+
+Entire cube's rotation(left, right, top, down) uses the same logic as each individual layer movement but less complex, here's what I did
+~~Do **NOT** rotate camera around cube, I did that for left rotation and it worked, but gave a lot of troubles during up rotation~~
+
+* I made a group called `cubeViewGroup` during scene creation and instead of adding cubes to scene, I added the `cubeViewGroup` to scene and added cubes to the group
+* Created seperate functions for rotation and instead of rotating camera(biggest mistake I did during this function)
+* After rotation, snapped the group back properly to reduce floating point error(they accumulate after long runs)
+
+I will have to add gesture movements later too

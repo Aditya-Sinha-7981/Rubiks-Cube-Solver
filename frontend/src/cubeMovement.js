@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { scene } from './scene.js'
+import { scene, cubeViewGroup } from './scene.js'
 import * as cubeCreation from './cubeCreation.js'
 import * as Constants from './constants.js'
 import { debugTrackedCubelet } from './debug.js'
@@ -19,7 +19,7 @@ export function moveLayer(axis, value, direction) {
         }
     })
 
-    scene.add(tempGroup)
+    cubeViewGroup.add(tempGroup)
 
     currentMove = {
         group: tempGroup,
@@ -100,10 +100,32 @@ export function finalizeMove() {
     const rotated = [...currentMove.group.children]
 
     rotated.forEach(cube => {
-        scene.attach(cube)
+        cubeViewGroup.attach(cube)
         updateStickerFaces(cube, currentMove.axis, currentMove.rotationSign)
     })
 
-    scene.remove(currentMove.group)
+    cubeViewGroup.remove(currentMove.group)
     console.log("Move finalized")
+}
+
+// CUBE ROTATION
+
+export let cubeRotation = null
+export function rotateCube(axis, sign) {
+    cubeRotation = { axis, sign, remaining: Math.PI / 2, speed: Constants.CAMERA_ANIMATION_SPEED }
+}
+export function snapCubeViewRotation() {
+    const axes = ['x', 'y', 'z']
+
+    axes.forEach(axis => {
+        const angle = cubeViewGroup.rotation[axis]
+        const snapped = Math.round(angle / (Math.PI / 2)) * (Math.PI / 2)
+        cubeViewGroup.rotation[axis] = snapped
+    })
+}
+export function cubeRotationReset(){
+    cubeViewGroup.rotation.set(0, 0, 0)
+}
+export function clearCubeRotation(){
+    cubeRotation = null
 }

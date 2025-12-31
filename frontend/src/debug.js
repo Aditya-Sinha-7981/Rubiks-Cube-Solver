@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import * as cubeCreation from './cubeCreation.js'
+import * as scenes from './scene.js'
 
 // export const trackedCubelet = cubeMatrix[0][2][2]
 let trackedCubelet = null
@@ -49,4 +50,8 @@ export function debugTrackedCubelet(label = "") {
     })
 
     console.groupEnd()
+}
+
+export function debugCubeGroup(){
+    console.log("Cube View Group:", scenes.cubeViewGroup)
 }

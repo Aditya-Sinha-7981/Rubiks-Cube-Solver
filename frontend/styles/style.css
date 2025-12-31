@@ -45,7 +45,7 @@ section.cube-canvas .functional-buttons {
   position: absolute;
   bottom: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 90%;
   max-width: 1100px;
 }/*# sourceMappingURL=style.css.map */
