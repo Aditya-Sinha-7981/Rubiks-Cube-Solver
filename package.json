@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "sweetalert2": "^11.26.17",
     "three": "^0.182.0"
   },
   "devDependencies": {

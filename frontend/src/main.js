@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import Swal from 'sweetalert2'
 import * as constants from './constants.js'
 import { renderer, scene, camera, controls, cubeViewGroup } from './scene.js'
 import * as cubeCreation from './cubeCreation.js'
@@ -43,7 +44,20 @@ constants.ROTATE_UP.onclick = () => {
     cubeMovement.rotateCube('x', -1)
 }
 constants.ROTATION_RESET.onclick = () => {
-    cubeMovement.cubeRotationReset()
+    // cubeMovement.cubeRotationReset()
+    Swal.fire({
+        title: 'Reset Cube Rotation?',
+        text: `This will reset the cube to it's original orientation.`,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if(result.isConfirmed){
+            cubeMovement.cubeRotationReset()
+        }
+    })
 }
   
 
