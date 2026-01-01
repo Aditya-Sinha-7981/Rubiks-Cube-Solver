@@ -38,3 +38,21 @@ export const FACE_ROTATION = {
         "-1":  { U: 'R', R: 'D', D: 'L', L: 'U' }
     }
 }
+
+// Color Pickers
+
+export const colorButtonRed = document.querySelector('#red-color')
+export const colorButtonWhite = document.querySelector('#white-color')
+export const colorButtonBlue = document.querySelector('#blue-color')
+export const colorButtonOrange = document.querySelector('#orange-color')
+export const colorButtonGreen = document.querySelector('#green-color')
+export const colorButtonYellow = document.querySelector('#yellow-color')
+
+export const COLOR_MAP = {
+    W: 0xffffff,
+    Y: 0xffdd00,
+    R: 0xff0000,
+    O: 0xff6d00,
+    B: 0x3579de,
+    G: 0x29bb2a
+}

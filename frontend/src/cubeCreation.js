@@ -57,7 +57,7 @@ function addSticker(cube, face) {
     orientFace(border, face, Constants.BORDER_OFFSET)
     orientFace(sticker, face, Constants.STICKER_OFFSET)
 
-    sticker.userData = { face, id: `${face}_sticker`, color: 0xffffff }
+    sticker.userData = { face, id: `${face}_sticker`, color: 'W' }
 }
 
 function addStickersPerFace(cube, coordinates) {

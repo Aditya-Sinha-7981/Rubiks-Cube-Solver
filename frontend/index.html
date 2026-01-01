@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="styles/style.css">
   </head>
@@ -16,7 +17,12 @@
     
     <section class="cube-canvas" id="cubeCanvas">
       <div class="cube-colors">
-
+        <button id="white-color" class="active"></button>
+        <button id="yellow-color"></button>
+        <button id="red-color"></button>
+        <button id="blue-color"></button>
+        <button id="orange-color"></button>
+        <button id="green-color"></button>
       </div>
   
       <div class="functional-buttons">
@@ -24,11 +30,13 @@
           <button id="rotationReset">Reset</button>
         </div>
         <div class="buttons-container center-container">
-          <button id="rotateLeft">Left</button>
-          <button id="rotateUp">Up</button>
-          <button id="rotateRight">Right</button>
+          <button id="rotateLeft"><i class="fa-regular fa-hand-point-left"></i></button>
+          <button id="rotateUp"><i class="fa-regular fa-hand-point-up"></i></button>
+          <button id="rotateRight"><i class="fa-regular fa-hand-point-right"></i></button>
         </div>
-        <div class="buttons-container right-container"></div>
+        <div class="buttons-container right-container">
+          <button id="solveButton">Solve</button>
+        </div>
       </div>
     </section>
 

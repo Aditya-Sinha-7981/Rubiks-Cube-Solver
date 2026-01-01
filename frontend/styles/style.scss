@@ -43,12 +43,105 @@ section.cube-canvas{
         height: 100%;
     }
 
-    .functional-buttons{
+    .cube-colors{
         position: absolute;
-        bottom: 20px;
+        top: 20px;
         display: flex;
         justify-content: space-between;
         width: 90%;
         max-width: 1100px;
+
+        button{
+            padding: 10px 20px;
+            border: none;
+            width: 200px;
+            max-width: 10%;
+            height: 40px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            color: #000;
+            font-size: 14px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+
+            &#white-color{
+                background-color: #ffffff;
+            }
+            &#yellow-color{
+                background-color: #ffdd00;
+            }
+            &#red-color{
+                background-color: #ff0000;
+            }
+            &#orange-color{
+                background-color: #ff6d00;
+            }
+            &#blue-color{
+                background-color: #3579de;
+            }
+            &#green-color{
+                background-color: #29bb2a;
+            }
+            &.active{
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                border: 2px solid #000;
+            }
+            &:hover{
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            }
+        }
+    }
+
+    .functional-buttons{
+        position: absolute;
+        bottom: 20px;
+        width: 90%;
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        button{
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            color: #000;
+            font-size: 14px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+
+            &:hover{
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                background-color: #29bb2a;
+                transition: all 0.3s ease;
+                border: 1px solid #000;
+            }
+        }
+
+        .buttons-container{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .left-container, .right-container{
+
+            button{
+                background-color: #ff6d00;
+                color: #fff;
+
+                &:hover{
+                    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                    border: 1px solid #000;
+                }
+            }
+        }
+        .left-container{
+            justify-content: start;
+        }
+        .right-container{
+            justify-content: end;
+        }
     }
 }

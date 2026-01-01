@@ -41,11 +41,94 @@ section.cube-canvas canvas {
   width: 100%;
   height: 100%;
 }
-section.cube-canvas .functional-buttons {
+section.cube-canvas .cube-colors {
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   display: flex;
   justify-content: space-between;
   width: 90%;
   max-width: 1100px;
+}
+section.cube-canvas .cube-colors button {
+  padding: 10px 20px;
+  border: none;
+  width: 200px;
+  max-width: 10%;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #000;
+  font-size: 14px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+section.cube-canvas .cube-colors button#white-color {
+  background-color: #ffffff;
+}
+section.cube-canvas .cube-colors button#yellow-color {
+  background-color: #ffdd00;
+}
+section.cube-canvas .cube-colors button#red-color {
+  background-color: #ff0000;
+}
+section.cube-canvas .cube-colors button#orange-color {
+  background-color: #ff6d00;
+}
+section.cube-canvas .cube-colors button#blue-color {
+  background-color: #3579de;
+}
+section.cube-canvas .cube-colors button#green-color {
+  background-color: #29bb2a;
+}
+section.cube-canvas .cube-colors button.active {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+}
+section.cube-canvas .cube-colors button:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+section.cube-canvas .functional-buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+section.cube-canvas .functional-buttons button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #000;
+  font-size: 14px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+section.cube-canvas .functional-buttons button:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  background-color: #29bb2a;
+  transition: all 0.3s ease;
+  border: 1px solid #000;
+}
+section.cube-canvas .functional-buttons .buttons-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+section.cube-canvas .functional-buttons .left-container button, section.cube-canvas .functional-buttons .right-container button {
+  background-color: #ff6d00;
+  color: #fff;
+}
+section.cube-canvas .functional-buttons .left-container button:hover, section.cube-canvas .functional-buttons .right-container button:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #000;
+}
+section.cube-canvas .functional-buttons .left-container {
+  justify-content: start;
+}
+section.cube-canvas .functional-buttons .right-container {
+  justify-content: end;
 }/*# sourceMappingURL=style.css.map */
