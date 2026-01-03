@@ -56,3 +56,17 @@ export const COLOR_MAP = {
     B: 0x3579de,
     G: 0x29bb2a
 }
+
+export const fullScreenButton = document.querySelector('#fullScreenButton')
+export let viewMode = 'normal'
+const CAMERA_PRESETS = {
+    normal: {
+      position: [6, 4.5, 6],
+      fov: 40
+    },
+    fullscreen: {
+      position: [4.5, 3.5, 4.5],
+      fov: 35
+    }
+  }
+  

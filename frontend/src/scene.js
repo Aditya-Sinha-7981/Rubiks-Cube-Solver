@@ -27,3 +27,26 @@ controls.enablePan = false
 
 export const cubeViewGroup = new THREE.Group()
 scene.add(cubeViewGroup)
+
+function resizeRenderer() {
+  const w = constants.CUBE_CONTAINER.clientWidth
+  const h = constants.CUBE_CONTAINER.clientHeight
+
+  renderer.setSize(w, h)
+  camera.aspect = w / h
+  camera.updateProjectionMatrix()
+}
+
+constants.fullScreenButton.onclick = () => {
+  constants.CUBE_CONTAINER.classList.toggle('fullscreen')
+
+  resizeRenderer()
+}
+function applyCameraPreset(mode) {
+  const preset = CAMERA_PRESETS[mode]
+
+  camera.fov = preset.fov
+  camera.position.set(...preset.position)
+  camera.lookAt(0, 0, 0)
+  camera.updateProjectionMatrix()
+}

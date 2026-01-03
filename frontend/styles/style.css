@@ -31,6 +31,7 @@ section.landing {
 section.cube-canvas {
   width: 100%;
   min-height: 500px;
+  max-height: 500px;
   position: relative;
   background-color: #dfdfdf;
   display: flex;
@@ -131,4 +132,18 @@ section.cube-canvas .functional-buttons .left-container {
 }
 section.cube-canvas .functional-buttons .right-container {
   justify-content: end;
+}
+section.cube-canvas.fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  max-height: unset;
+}
+section.cube-canvas.fullscreen canvas {
+  flex: 1;
 }/*# sourceMappingURL=style.css.map */
