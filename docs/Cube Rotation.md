@@ -123,4 +123,11 @@ Entire cube's rotation(left, right, top, down) uses the same logic as each indiv
 * Created seperate functions for rotation and instead of rotating camera(biggest mistake I did during this function)
 * After rotation, snapped the group back properly to reduce floating point error(they accumulate after long runs)
 
+### Cube rotation changes
+My initial idea was to rotate the `cubeViewGroup` I created and it worked ~~perfectly~~ since we were rotating the cube on it's local-axis
+The issue arises when we rotate the cube on, say Y axis for up and THEN rotate it on X axis, it rotates relative to itself meaning now the rotations are wrong
+To fix this issue, I used `.updateWorldMatrix` which takes a three.js vector and then rotated the cube around it, it acts like world axis
+I changed the snapping and resetting orientation to match the new logic
+
+
 I will have to add gesture movements later too

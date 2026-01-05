@@ -112,19 +112,26 @@ export function finalizeMove() {
 
 export let cubeRotation = null
 export function rotateCube(axis, sign) {
-    cubeRotation = { axis, sign, remaining: Math.PI / 2, speed: Constants.CAMERA_ANIMATION_SPEED }
+    const worldAxis = new THREE.Vector3(
+        axis === "x" ? 1: 0,
+        axis === "y" ? 1: 0,
+        axis === "z" ? 1: 0
+    )
+    cubeRotation = { worldAxis, sign, remaining: Math.PI / 2, speed: Constants.CAMERA_ANIMATION_SPEED }
 }
 export function snapCubeViewRotation() {
-    const axes = ['x', 'y', 'z']
+    const euler = new THREE.Euler().setFromQuaternion(cubeViewGroup.quaternion, 'XYZ')
 
-    axes.forEach(axis => {
-        const angle = cubeViewGroup.rotation[axis]
-        const snapped = Math.round(angle / (Math.PI / 2)) * (Math.PI / 2)
-        cubeViewGroup.rotation[axis] = snapped
-    })
+    const snap = Math.PI / 2
+
+    euler.x = Math.round(euler.x / snap) * snap
+    euler.y = Math.round(euler.y / snap) * snap
+    euler.z = Math.round(euler.z / snap) * snap
+
+    cubeViewGroup.quaternion.setFromEuler(euler)
 }
 export function cubeRotationReset(){
-    cubeViewGroup.rotation.set(0, 0, 0)
+    cubeViewGroup.quaternion.identity()
 }
 export function clearCubeRotation(){
     cubeRotation = null

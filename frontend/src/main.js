@@ -133,7 +133,7 @@ function animate() {
     //Cube rotation animation
     if(cubeMovement.cubeRotation) {
         const step = Math.min(cubeMovement.cubeRotation.remaining, cubeMovement.cubeRotation.speed)
-        cubeViewGroup.rotation[cubeMovement.cubeRotation.axis] += step * cubeMovement.cubeRotation.sign 
+        cubeViewGroup.rotateOnWorldAxis(cubeMovement.cubeRotation.worldAxis, step * cubeMovement.cubeRotation.sign)
         cubeMovement.cubeRotation.remaining -= step
 
         if (cubeMovement.cubeRotation.remaining <= 0) {
